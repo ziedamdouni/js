@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<style>
+  div {
+  text-align:center;
+}
+</style>
+<body>
+  <div class="jumbotron">
+    <h1 class="display-1"> The Secret Code is : magic</h1>
+    <p class ="container lead"> Just type that anywhere to see magic happen</p>
+  </div>
+<script>
+  const pressed = [];
+	const secretCode = 'magic';
+	window.addEventListener('keyup', (e) =>{
+		console.log(e.key);
+		pressed.push(e.key);
+		pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+		if(pressed.join('').includes(secretCode)){
+			cornify_add();
+		}
+	})
+</script>
+</body>
+</html>
